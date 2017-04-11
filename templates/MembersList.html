@@ -1,0 +1,45 @@
+<!-- Members_Table -->
+<div class="panel panel-default memberTable" id="membersList">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Members</div>
+    <div class="panel-body">
+      <span class="input-group-btn">
+        <input type="text" class="form-control" placeholder="Search Employee Details Into Database..." ng-model="search_query">
+      </span>
+    </div>
+	<div class="table-container">
+      <!-- Table -->
+      <table class="table table-hover">
+        <tr>
+        <th class="">ID</th>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Email</th>
+        <th>Access type</th>
+        <th>Position</th>
+        <th>Password</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        </tr>
+          <tr ng-repeat="member in members | filter:search_query">
+            <td class=""><span>{{member.id}}</span></td>
+            <td>{{member.name}}</td>
+            <td>{{member.surname}}</td>     
+            <td>{{member.email}}</td>
+            <td>{{member.access_name}}</td>
+            <td>{{member.pos_name}}</td>
+            <td>{{member.password}}</td>
+            <td>
+              <button class="btn btn-warning" ng-click="editInfo(member)" title="Edit">
+              <!-- <a href="#/UpdateMember"></a> -->
+              <span class="glyphicon glyphicon-edit"></span></button>
+            </td>
+            <td>
+              <button class="btn btn-danger" ng-click="deleteInfo(member)" title="Delete">
+              <span class="glyphicon glyphicon-trash"></span></button>
+            </td>
+          </tr>
+        </table>
+      <!-- </form> -->
+      </div>
+  </div>

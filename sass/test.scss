@@ -1,0 +1,118 @@
+//-----Переменные
+$bg-right: #adc;
+$bg-left: #ddd;
+$i: !important;
+
+//-----Код
+
+//--- PreLoader
+
+//--- End_PreLoader
+
+body {
+	overflow: auto; /* добавить полосу прокрутки */ 
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+a, .btn {
+	outline: 0 $i;
+}
+
+ul{
+	list-style-type: none;
+	margin-left: -35px;
+}
+
+.block-left{
+	background-color: $bg-left;
+	height: 100vh;
+	padding: 25px $i;
+	// max-width: 1000px $i;
+}
+
+.block-right{
+	padding-right: 0 $i;
+	padding-left: 0 $i;
+}
+
+.navbar{
+	border-radius: 0 0 5px 5px $i;
+}
+
+//--------------------------------------------------- Left Block
+
+.userPhoto{
+	width: auto;
+	height: auto;
+	// background-color: #111;
+	margin-bottom: 3vh;
+}
+
+.links{
+	//background-color: #111;
+	padding: 0;
+}
+
+//--------------------------------------------------- Right Block
+
+.main-container{
+	padding: 1.5vh;
+}
+
+//Table_Members
+
+.table-container {
+	overflow: scroll;
+	padding: 0;
+	//height: 200px;
+}
+
+.table{
+	//height: 18.5vh;
+}
+
+.navchik{
+	background-color: #eee;
+}
+
+tr:hover {
+	background-color: #eee;
+}
+
+th{
+	width: 130px;
+}
+
+#memberForm{
+	margin: 10px; 
+}
+
+//--------- FOR MOBILE
+
+.mobile_members{
+	display: none $i;
+}
+
+.mobile_projects{
+	display: none $i;
+}
+
+@media screen and (max-width: 767px) {
+
+.mobile_members{
+	display: block $i;
+}
+
+.mobile_projects{
+	display: block $i;
+}
+
+}
+
+
+
+
+
+

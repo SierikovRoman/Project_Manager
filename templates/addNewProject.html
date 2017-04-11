@@ -1,0 +1,113 @@
+<!-- ADD_NEW_MEMBER-->
+<div class="panel panel-default" >
+  <!-- Default panel contents -->
+  <div class="panel-heading">Add new project</div>
+        <form name="projectList" ng-submit="insertNewProject(projectInfo);"
+        method="POST"> <!-- action="test.php" -->
+
+          <div class="form-group">
+              <label for="Name">Title</label>
+              <input type="text"
+                   name="projectName"
+                   class="form-control"
+                   placeholder="IOS Application"
+                   maxlength="30"
+                   ng-model="projectInfo.title" 
+                   autofocus 
+                   required />
+            </div>
+
+            <!-- ERRORS_NAME -->
+            <div class="form-group">
+            <p class="text-danger" ng-show="projectList.projectName.$invalid && projectList.projectName.$dirty">Title field is Empty!</p>
+          </div>
+          <!-- END_ERRORS_NAME -->
+
+            <div class="form-group">
+              <label for="StartDate">Start Date</label>
+              <input type="text" 
+                   name="projectStartDate"
+                   class="form-control"
+                   placeholder="2017-12-31"
+                   maxlength="30"
+                   ng-model="projectInfo.start_dt" 
+                   autofocus 
+                   required />
+            </div>
+
+          <!-- ERRORS_SURNAME -->
+            <div class="form-group">
+            <p class="text-danger" ng-show="projectList.projectStartDate.$invalid && projectList.projectStartDate.$dirty">Start Date field is Empty!</p>
+          </div>
+          <!-- END_ERRORS_SURNAME -->
+
+            <div class="form-group">
+              <label for="EndDate">End Date</label>
+              <input type="text" 
+                 name="projectEndDate"
+                 class="form-control"
+                 placeholder="2017-12-31"
+                 maxlength="30"
+                 ng-model="projectInfo.end_dt" 
+                 autofocus 
+                 required />
+            </div>
+
+          <!-- ERRORS_LOGIN -->
+            <div class="form-group">
+            <p class="text-danger" ng-show="projectList.projectEndDate.$invalid && projectList.projectEndDate.$dirty">End Date field is Empty!</p>
+          </div>
+          <!-- END_ERRORS_LOGIN -->
+
+          <div class="form-group" > <!-- ng-controller="projectManagerController" -->
+            <label for="Progect Manager">Project Manager</label>
+
+            </br>
+
+            <select ng-model="projectInfo.emp_id" >
+              <option ng-repeat="pr_count in projCount" value="{{pr_count.id}}">{{pr_count.id}} {{pr_count.name}} {{pr_count.surname}}</option>
+            </select>
+
+              <!-- <h1>You selected: {{projectInfo.emp_id}}</h1> -->
+          </div>
+
+
+          <!-- ERRORS_PROGRESS -->
+            <div class="form-group">
+            <p class="text-danger" ng-show="projectList.projectProjectManager.$invalid && projectList.projectProjectManager.$dirty">Manager field is Empty!</p>
+          </div>
+          <!-- END_ERRORS_PROGRESS -->
+
+          <div class="form-group">
+            <label for="Progress">Progress</label>
+            <input type="text" 
+                 name="projectProgress" 
+                 class="form-control"
+                 placeholder="0"
+                 maxlength="3"
+                 ng-model="projectInfo.progress" 
+                 autofocus
+                 value="0" 
+                 disabled />
+          </div>
+
+          <!-- ERRORS_PROGRESS -->
+            <div class="form-group">
+            <p class="text-danger" ng-show="projectList.projectProgress.$invalid && projectList.projectProgress.$dirty">Progress field is Empty!</p>
+          </div>
+          <!-- END_ERRORS_PROGRESS -->
+
+
+          <div class="modal-footer form-group">
+            <button class="btn btn-primary" ng-disabled="projectList.$invalid">Add</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+
+
+
+
+
+

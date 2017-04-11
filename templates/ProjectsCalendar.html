@@ -1,0 +1,30 @@
+<!-- Task_Calendar -->
+  <div id="calendar"></div>
+
+<script>
+        
+$('#calendar').fullCalendar({
+     events: '../../Project_Manager/php/projectInfoCalendar.php',
+     error: function() 
+            {
+                alert("error");
+            },
+            success: function()
+            {
+                console.log("successfully loaded");
+            },
+    color: 'blue',    
+    textColor: 'yellow',
+    utc: true,
+    header: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'month,agendaWeek,agendaDay'
+    }
+    //editable: true
+    //droppable: true
+});
+
+
+</script>
+

@@ -1,0 +1,41 @@
+<!-- Members_Table -->
+<div class="panel panel-default memberTable" id="membersList">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Project Tasks</div>
+    <div class="panel-body">
+      <span class="input-group-btn">
+        <input type="text" class="form-control" placeholder="Search tasks Into Database..." ng-model="search_query">
+      </span>
+    </div>
+  <div class="table-container">
+      <!-- Table -->
+      <table class="table table-hover">
+        <tr>
+        <th class="hide">ID</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Start Date</th>
+        <th>End Date</th>  
+        <th>Edit</th>
+        <th>Delete</th>
+        </tr>
+          <tr ng-repeat="task in tasks | filter:search_query">
+            <td class="hide"><span>{{task.id}}</span></td>
+            <td>{{task.title}}</td>
+            <td>{{task.description}}</td>
+            <td>{{task.start_dt}}</td>     
+            <td>{{task.end_dt}}</td> 
+            <td>
+              <button class="btn btn-warning" ng-click="editInfoTask(task)" title="Edit">
+              <!-- <a href="#/UpdateMember"></a> -->
+              <span class="glyphicon glyphicon-edit"></span></button>
+            </td>
+            <td>
+              <button class="btn btn-danger" ng-click="deleteInfoTask(task)" title="Delete">
+              <span class="glyphicon glyphicon-trash"></span></button>
+            </td>
+          </tr>
+        </table>
+      <!-- </form> -->
+      </div>
+  </div>
