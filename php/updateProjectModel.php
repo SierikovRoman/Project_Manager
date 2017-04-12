@@ -10,10 +10,10 @@ $id = pg_escape_string($con, $data->id);
 $title = pg_escape_string($con, $data->title);
 $start_dt = pg_escape_string($con, $data->start_dt);
 $end_dt = pg_escape_string($con, $data->end_dt);
-$project_id = pg_escape_string($con, $data->emp_id); // доделать изменение куратора проекта
+$project_id = pg_escape_string($con, $data->model_id); // доделать изменение куратора проекта
 
 
-$query = "UPDATE project SET title = '$title', start_dt = '$start_dt', end_dt = '$end_dt', progress = '0' WHERE id = '$id';";
+$query = "UPDATE project SET title = '$title', start_dt = '$start_dt', end_dt = '$end_dt', progress = '0', model_id = '$project_id' WHERE id = '$id';";
 
 // Updating data into database
 $result = pg_query($con, $query);

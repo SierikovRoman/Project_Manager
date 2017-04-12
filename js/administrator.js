@@ -164,13 +164,10 @@
 			"emp_id":info.emp_id
 
 			}).success(function(data){
-			if (data == true) {
+			if (data !=null) {
 				getInfoProj();
 				console.log("Added new project");
-				//console.log(info.title);
-				//console.log(info.start_dt);
-				//console.log(info.end_dt);
-				//console.log(info.emp_id);
+				console.log(data);
 			};
 		});
 	};
@@ -203,8 +200,8 @@
 			"id":info.id,
 			"title":info.title,
 			"start_dt":info.start_dt,
-			"end_dt":info.end_dt
-			//"emp_id":info.emp_id
+			"end_dt":info.end_dt,
+			"emp_id":info.emp_id
 
 			}).success(function(data){
 				if (data == true) {

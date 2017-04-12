@@ -35,10 +35,10 @@ session_start();
               <a href="#/MemberList"> MEMBERS </a> <!-- ng-click="membersList()" -->
             </li>
             <li>
-              <a href="#/Projects"> MY PROJECTS </a>
+              <a href="#/Projects"> MY PROJECT </a>
             </li>
             <li>
-              <a href="#/ProjectTasks"> PROJECTS TASKS </a>
+              <a href="#/ProjectTasks"> PROJECT TASKS </a>
             </li>
             <li>
               <a href="#/AddNewProject"> ADD NEW TASK </a>
@@ -65,7 +65,7 @@ session_start();
 				<!-- Main_start -->
 				<div class="main-container">
 
-          <div ng-include src="'templates/updateMember.html'"></div>   
+          <div ng-include src="'templates/updateProjectModel.html'"></div>   
 
           <ng-view></ng-view>
         

@@ -7,15 +7,15 @@
 		$routeProvider
 
 		.when('/', {
-			templateUrl: '../../Project_Manager/templates/MembersList.html'
+			templateUrl: '../../Project_Manager/templates/MemberList.html'
 		})
 
 		.when('/MemberList', {
-			templateUrl: '../../Project_Manager/templates/MembersList.html'
+			templateUrl: '../../Project_Manager/templates/MemberList.html'
 		})
 
 		.when('/Projects', {
-			templateUrl: '../../Project_Manager/templates/ProjectsList.html'
+			templateUrl: '../../Project_Manager/templates/ProjectList.html'
 		})
 		
 		.when('/ProjectTasks', {
@@ -32,12 +32,6 @@
 
 	});
 
-	app.controller('projectManagerController', ['$scope','$http', function($scope,$http) {
-		$http.post('../../Project_Manager/php/projectManagerDetails.php').success(function(data){
-			$scope.projMan = data;
-		});
-	}]);
-
 	app.controller("DbController",['$scope','$http', function($scope,$http){
 
 	// Function to get employee details from the database
@@ -51,71 +45,6 @@
 			});
 		};
 
-	// Insert New member to db
-	$scope.insertNewMember = function(info){
-		$http.post('../../Project_Manager/php/insertDetails.php',{
-
-			"name":info.name,
-			"surname":info.surname,
-			"email":info.email,
-			"access_type":info.access_type,
-			"position":info.position,
-			"password":info.password
-
-			}).success(function(data){
-			if (data == true) {
-				getInfo();
-				console.log("Added new member");
-			};
-		});
-	};
-
-	// Delete member from db
-	$scope.deleteInfo = function(info){
-		$http.post('../../Project_Manager/php/deleteDetails.php',{
-
-			"del_id":info.id
-
-			}).success(function(data){
-			if (data == true) {
-				getInfo();
-				console.log("Row deleted");
-			};
-		});
-	}
-
-
-	$scope.currentUser = {};
-	$scope.editInfo = function(info){
-		$scope.currentUser = info;
-		$('#membersList').slideUp();
-		$('#updateMember').slideToggle();
-	};
-
-	$scope.UpdateInfo = function(info){
-		console.log("Updated");
-		$http.post('../../Project_Manager/php/updateDetails.php',{
-
-			"id":info.id,
-			"name":info.name,
-			"surname":info.surname,
-			"email":info.email,
-			"access_type":info.access_type,
-			"position":info.position,
-			"password":info.password
-
-			}).success(function(data){
-				if (data == true) {
-					getInfo();
-					console.log("Updated");
-				}
-		});
-	};
-
-	$scope.updateMsg = function(id){
-		$('#membersList').slideToggle();
-		$('#updateMember').slideUp();
-	}
 	//====================================
 	//============= PROJECTS =============
 	
@@ -130,36 +59,50 @@
 		});
 	};
 
-	// Insert New project to db
-	// $scope.insertNewProject = function(info){
-	// 	$http.post('../../Project_Manager/php/insertProject.php',{
+	
+	getModel();
+	function getModel(){
+		$http.post('../../Project_Manager/php/getModels.php').success(function(data){
+			console.log("Models list downloaded");
+			$scope.modelCount = data;
+		});
+	};
 
-	// 		"title":info.title,
-	// 		"start_dt":info.start_dt,
-	// 		"end_dt":info.end_dt,
-	// 		"progress":info.progress
+	$scope.currenProject = {};
+	$scope.editInfoProject = function(info){
+		$scope.currentProject = info;
+		$('#projectList').slideUp();
+		$('#updateProjectModel').slideToggle();
+	};
 
-	// 		}).success(function(data){
-	// 		if (data == true) {
-	// 			getInfoProj();
-	// 			console.log("Added new project");
-	// 		};
-	// 	});
-	// };
+	$scope.UpdateProject = function(info){
+		//console.log("Updated");
+		$http.post('../../Project_Manager/php/updateProjectModel.php',{
 
-	// // Delete project from db
-	// $scope.deleteInfoProj = function(info){
-	// 	$http.post('../../Project_Manager/php/projectInfoCalendar.php',{
+			"id":info.id,
+			"title":info.title,
+			"start_dt":info.start_dt,
+			"end_dt":info.end_dt,
+			"model_id":info.model_id
 
-	// 		"id":info.id
+			}).success(function(data){
+				if (data !=null) {
+					//getInfo();
+					alert(data);
+					console.log("Project updated");
+					// console.log(info.title);
+					// console.log(info.start_dt);
+					// console.log(info.end_dt);
+					//console.log(info.emp_id);
+				}
+		});
+	};
 
-	// 		}).success(function(data){
-	// 		if (data == true) {
-	// 			getInfoProj();
-	// 			console.log("Project deleted");
-	// 		};
-	// 	});
-	// };
+	$scope.setUpdateProject = function(id){
+		$('#projectList').slideToggle();
+		$('#updateProject').slideUp();
+	}
+
 
 	//=================================
 	//============= TASKS =============
@@ -167,10 +110,8 @@
 
 	getInfoTasks();
 	function getInfoTasks(){
-		// Sending request to ProjDetails.php files 
 		$http.post('../../Project_Manager/php/taskDetails.php').success(function(data){
 			console.log("Tasks downloaded & updated");
-			// Stored the returned data into scope 
 			$scope.tasks = data;
 		});
 	};
