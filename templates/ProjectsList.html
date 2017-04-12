@@ -16,7 +16,8 @@
         <th>Start Date</th>
         <th>End Date</th>
         <th>Progress</th>
-        <!-- <th>Project Manager</th> -->
+        <th>Project Manager</th>
+        <th>Model</th>
         <th>Edit</th>
         <th>Delete</th>
         </tr>
@@ -25,8 +26,9 @@
             <td>{{project.title}}</td>
             <td>{{project.start_dt}}</td>     
             <td>{{project.end_dt}}</td>
-            <!-- <td>{{project.pm_name}}</td> -->
             <td>{{project.progress}}</td>
+            <td>{{project.member_name}}</td>
+            <td>{{project.model_name}}</td>
             <td>
               <button class="btn btn-warning" ng-click="editInfoProject(project)" title="Edit">
               <!-- <a href="#/UpdateMember"></a> -->

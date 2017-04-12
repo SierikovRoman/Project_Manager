@@ -1,7 +1,7 @@
 <!-- Members_Table -->
 <div class="panel panel-default memberTable" id="projectList">
   <!-- Default panel contents -->
-  <div class="panel-heading">Projects</div>
+  <div class="panel-heading">Project</div>
     <div class="panel-body">
       <span class="input-group-btn">
         <input type="text" class="form-control" placeholder="Search Projects Into Database..." ng-model="search_query">
@@ -27,8 +27,8 @@
             <td>{{project.start_dt}}</td>     
             <td>{{project.end_dt}}</td>
             <td>{{project.progress}}</td>
-            <td>Вставіть проджеет менеджера</td>
-            <td>Вставіть модель</td>
+            <td>{{project.member_name}}</td>
+            <td>{{project.model_name}}</td>
             <td>
               <button class="btn btn-warning" ng-click="editInfoProject(project)" title="Edit">
               <!-- <a href="#/UpdateMember"></a> -->

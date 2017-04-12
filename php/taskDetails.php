@@ -11,7 +11,12 @@ $project_id = pg_fetch_array($query_id);
 $project_id = $project_id[0];
 
 if ($id!=2) {
-	$query = "SELECT * FROM task WHERE project_id='$project_id' ";
+	//$query = "SELECT * FROM task WHERE project_id='$project_id' ";
+	
+	$query = "SELECT t.id, t.title, t.description, t.start_dt, t.end_dt, m.name AS member_name, t.is_done FROM task t
+  			  LEFT JOIN task_executor tx ON t.id = tx.task_id
+  			  LEFT JOIN member m ON tx.employee_id = m.id
+  			  WHERE t.project_id = '$project_id' ;";
 }else{
 	$query = "SELECT * FROM task ";
 }

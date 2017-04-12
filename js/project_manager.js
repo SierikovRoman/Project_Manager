@@ -19,15 +19,15 @@
 		})
 		
 		.when('/ProjectTasks', {
-			templateUrl: '../../Project_Manager/templates/ProjectsTasks.html'
+			templateUrl: '../../Project_Manager/templates/TasksList.html'
+		})
+
+		.when('/AddNewTask', {
+			templateUrl: '../../Project_Manager/templates/addNewTask.html'
 		})
 
 		.when('/TaskCalendar', {
 			templateUrl: '../../Project_Manager/templates/ProjectsCalendar.html'
-		})
-
-		.when('/AddNewProject', {
-			templateUrl: '../../Project_Manager/templates/addNewProject.html'
 		});
 
 	});
@@ -87,21 +87,23 @@
 
 			}).success(function(data){
 				if (data !=null) {
-					//getInfo();
-					alert(data);
+					getInfoProj();
+					getStageID();
+					//alert(data);
 					console.log("Project updated");
-					// console.log(info.title);
-					// console.log(info.start_dt);
-					// console.log(info.end_dt);
-					//console.log(info.emp_id);
+					console.log(info.id);
+					console.log(info.title);
+					console.log(info.start_dt);
+					console.log(info.end_dt);
+					console.log(info.model_id);
 				}
 		});
 	};
 
 	$scope.setUpdateProject = function(id){
 		$('#projectList').slideToggle();
-		$('#updateProject').slideUp();
-	}
+		$('#updateProjectModel').slideUp();
+	};
 
 
 	//=================================
@@ -115,6 +117,68 @@
 			$scope.tasks = data;
 		});
 	};
+
+
+	getMemberID();
+	function getMemberID(){
+		$http.post('../../Project_Manager/php/getExecutors.php').success(function(data){
+			console.log("Member list downloaded");
+			$scope.memberCount = data;
+		});
+	};
+
+	getStageID();
+	function getStageID(){
+		$http.post('../../Project_Manager/php/getStages.php').success(function(data){
+			console.log("Stage list downloaded");
+			$scope.stageCount = data;
+		});
+	};
+
+
+	// Insert New project to db
+	$scope.insertNewTask = function(info){
+		$http.post('../../Project_Manager/php/insertTask.php',{
+
+			"title":info.title,
+			"description":info.description,
+			"start_dt":info.start_dt,
+			"end_dt":info.end_dt,
+			"executor_id":info.executor_id,
+			"stage_id":info.stage_id
+
+			}).success(function(data){
+			if (data !=null) {
+				getInfoTasks();
+				console.log("Added new task");
+				console.log(data);
+			};
+		});
+	};
+
+	// Delete project from db
+	$scope.deleteInfoTask = function(info){
+		$http.post('../../Project_Manager/php/deleteTask.php',{
+
+			"id":info.id
+
+			}).success(function(data){
+			if (data == true) {
+				getInfoTasks();
+				console.log("Task - # " + info.id + " was deleted");
+			};
+		});
+	};
+
+
+
+
+
+
+
+
+
+
 
 
 	}]);

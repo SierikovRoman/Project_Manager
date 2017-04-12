@@ -41,7 +41,7 @@ session_start();
               <a href="#/ProjectTasks"> PROJECT TASKS </a>
             </li>
             <li>
-              <a href="#/AddNewProject"> ADD NEW TASK </a>
+              <a href="#/AddNewTask"> ADD NEW TASK </a>
             </li>
             <li>
               <a href="#/TaskCalendar"> TASK CALENDAR </a>

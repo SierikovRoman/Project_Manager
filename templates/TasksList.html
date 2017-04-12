@@ -1,5 +1,5 @@
-<!-- Members_Table -->
-<div class="panel panel-default memberTable" id="taskList">
+<!-- Tasks_Table -->
+<div class="panel panel-default" id="taskList">
   <!-- Default panel contents -->
   <div class="panel-heading">Project Tasks</div>
     <div class="panel-body">
@@ -27,7 +27,7 @@
             <td>{{task.description}}</td>
             <td>{{task.start_dt}}</td>     
             <td>{{task.end_dt}}</td> 
-            <td>Имя исполнителя</td> 
+            <td>{{task.member_name}}</td> 
             <td>{{task.is_done}}</td> 
             <td>
               <button class="btn btn-warning" ng-click="editInfoTask(task)" title="Edit">

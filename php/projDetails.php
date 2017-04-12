@@ -9,9 +9,16 @@ $query_id=pg_query("SELECT project_id FROM project_manager WHERE employee_id='$i
 $project_id=pg_fetch_array($query_id);
 $project_id=$project_id[0];
 if ($id!=2) {
-	$query = "SELECT * FROM project WHERE id='$project_id' ";
+
+	
+$query = "SELECT p.id, p.title, p.start_dt, p.end_dt, p.progress, mod.name AS model_name ,mem.name AS member_name FROM project p
+  			  JOIN model mod ON p.model_id = mod.project_id
+			  JOIN project_manager pr ON p.id = '$project_id'
+  			  JOIN member mem ON mem.id = pr.employee_id
+  			  WHERE p.id = pr.project_id ;";
 }else{
-	$query = "SELECT * FROM project ";
+
+	$query = "SELECT p.id, p.title, p.start_dt, p.end_dt, p.progress, mod.name AS model_name ,mem.name AS member_name FROM project p LEFT JOIN model mod ON p.model_id = mod.project_id LEFT JOIN project_manager pr ON p.id = pr.project_id LEFT JOIN member mem ON mem.id = pr.employee_id ;";
 }
 
 $result = pg_query($con, $query);

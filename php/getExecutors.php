@@ -3,7 +3,7 @@
 // Including database connections
 require_once 'database_connections.php'; 
 
-$query = "SELECT id, name FROM model";
+$query = "SELECT * FROM member WHERE position != 0 AND position != 1";
 
 $result = pg_query($con, $query);
 
