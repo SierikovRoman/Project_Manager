@@ -27,18 +27,18 @@ session_start();
 		<div class="row">
 			<div class="col-lg-2 col-mg-2 col-sm-2 hidden-xs block-left">
 				<div class="userPhoto">
-					<img src="images/jeka.png" alt="romek" class="img-responsive img-circle">
+					<img src="images/jeka.png" alt="projectManager" class="img-responsive img-circle">
 				</div>
 				<div class="links">
 					<ul class="nav nav-pills nav-stacked">
             <li>
-              <a href="#/MemberList"> MEMBERS </a> <!-- ng-click="membersList()" -->
+              <a href="#/MemberList" ng-click="updateMembers()"> MEMBERS </a> <!-- ng-click="membersList()" -->
             </li>
             <li>
-              <a href="#/Projects"> MY PROJECT </a>
+              <a href="#/Projects" ng-click="updateProjects()"> MY PROJECT </a>
             </li>
             <li>
-              <a href="#/ProjectTasks"> PROJECT TASKS </a>
+              <a href="#/ProjectTasks" ng-click="updateTasks()"> PROJECT TASKS </a>
             </li>
             <li>
               <a href="#/AddNewTask"> ADD NEW TASK </a>
@@ -46,9 +46,6 @@ session_start();
             <li>
               <a href="#/TaskCalendar"> TASK CALENDAR </a>
             </li>
-<!--             <li>
-              <a href="#/AddNewProject"> ADD NEW TASK </a>
-            </li> -->
             <li>
               <a href="#/MakeReport"> MAKE REPORT </a>
             </li>

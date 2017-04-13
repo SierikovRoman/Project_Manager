@@ -82,7 +82,7 @@
 
             </br>
 
-            <select ng-model="projectTask.executor_id" >
+            <select ng-model="projectTask.executor_id">
               <option ng-repeat="m_count in memberCount" value="{{m_count.id}}">{{m_count.id}} {{m_count.name}} {{m_count.surname}}</option>
             </select>
 
@@ -115,18 +115,16 @@
           </div>
           <!-- END_ERRORS_STAGE -->
 
-          <div class="form-group">
-            <label for="Status">Status</label>
-            <input type="text" 
-                   name="taskStatus" 
-                   class="form-control"
-                   placeholder="0"
-                   maxlength="3"
-                   ng-model="projectTask.status" 
-                   autofocus
-                   value="0" 
-                   disabled />
+          <div class="form-group" > 
+            <label for="Progect Manager">Is done:</label>
+
+            </br>
+
+            <input type="checkbox" ng-model="projectTask.status">
+
+            <h1>You selected: {{projectTask.status}}</h1>
           </div>
+
 
           <!-- ERRORS_STATUS -->
             <div class="form-group">

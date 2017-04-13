@@ -1,15 +1,25 @@
 <?php
+session_start();
+$id=$_SESSION['id'];
 include 'database_connections.php';
-$email= $_POST['email'];
-$password=$_POST['password'];
 
-//$query = "SELECT * FROM project WHERE model_id = 2";
-//$query = "SELECT p.id, p.title, p.start_dt, p.end_dt, p.progress, mod.name ,mem.name FROM project p LEFT JOIN model mod ON p.model_id = mod.project_id LEFT JOIN project_manager pr ON p.id = pr.project_id LEFT JOIN member mem ON mem.id = pr.employee_id ;";
+$data = json_decode(file_get_contents("php://input"));
 
-//$query = "SELECT * FROM member WHERE position_id != 0 & 1";
+$stage_id = pg_escape_string($con, $data->stages_id);
+
+$query_id = pg_query("SELECT max(project_id) FROM project_manager WHERE employee_id='$id'");
+$project_id = pg_fetch_array($query_id);
+$project_id = $project_id[0];
+
+	
+$query = "SELECT t.id, t.title, t.description, t.start_dt, t.end_dt, m.name AS member_name, t.is_done FROM task t
+			  LEFT JOIN task_executor tx ON t.id = tx.task_id
+			  LEFT JOIN member m ON tx.employee_id = m.id
+			  WHERE t.stage_id = '$stage_id' AND t.project_id = '$project_id' ;";
 
 $result = pg_query($con, $query);
-echo true;
+// echo true;
+
 
 $arr = array();
 if(pg_num_rows($result) != 0) {

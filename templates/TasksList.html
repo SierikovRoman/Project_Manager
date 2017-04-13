@@ -1,6 +1,36 @@
+<form name="taskList" ng-submit="showStageTasks(projectTask);" method="POST">
+
+<div class="form-group" > 
+  <label for="Progect Manager">Stage</label>
+
+  </br>
+
+  <select ng-model="projectTask.stages_id">
+    <option value="">--Select Stage--</option>
+    <option ng-repeat="st_count in stageCount" value="{{st_count.id}}">{{st_count.id}} {{st_count.name}}</option>
+  </select>
+
+    <!-- <h1>You selected: {{projectTask.stages_id}} {{st_count.name}}</h1> -->
+</div>
+
+<button class="btn btn-primary" ng-disabled="taskList.$invalid">SHOW</button>
+
+
+
+
+<!-- <div>
+
+  <p ng-show="projectTask.stage_id=='1'" ng-include src="'templates/stageArchitecture.html'"></p>
+  <p ng-show="projectTask.stage_id=='2'" ng-include src="'templates/stageArchitecture.html'"></p>
+  <p ng-show="projectTask.stage_id=='3'" ng-include src="'templates/stageArchitecture.html'"></p>
+  <p ng-show="projectTask.stage_id=='4'" ng-include src="'templates/stageArchitecture.html'"></p>
+  <p ng-show="projectTask.stage_id=='5'" ng-include src="'templates/stageArchitecture.html'"></p>
+
+</div> -->
+
+
 <!-- Tasks_Table -->
-<div class="panel panel-default" id="taskList">
-  <!-- Default panel contents -->
+<div class="panel panel-default">
   <div class="panel-heading">Project Tasks</div>
     <div class="panel-body">
       <span class="input-group-btn">
@@ -8,7 +38,6 @@
       </span>
     </div>
   <div class="table-container">
-      <!-- Table -->
       <table class="table table-hover">
         <tr>
         <th class="">ID</th>
@@ -21,7 +50,7 @@
         <th>Edit</th>
         <th>Delete</th>
         </tr>
-          <tr ng-repeat="task in tasks | filter:search_query">
+          <tr ng-repeat="task in tasks_name | filter:search_query">
             <td class=""><span>{{task.id}}</span></td>
             <td>{{task.title}}</td>
             <td>{{task.description}}</td>
@@ -39,6 +68,12 @@
             </td>
           </tr>
         </table>
-      <!-- </form> -->
       </div>
   </div>
+
+  </form>
+
+
+
+
+

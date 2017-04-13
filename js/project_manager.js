@@ -39,7 +39,7 @@
 		function getInfo(){
 			// Sending request to EmpDetails.php files 
 			$http.post('../../Project_Manager/php/empDetails.php').success(function(data){
-				console.log("Members dowloaded & updated");
+				console.log("Members dowloaded");
 				// Stored the returned data into scope 
 				$scope.members = data;
 			});
@@ -53,7 +53,7 @@
 	function getInfoProj(){
 		// Sending request to ProjDetails.php files 
 		$http.post('../../Project_Manager/php/projDetails.php').success(function(data){
-			console.log("Projects downloaded & apdated");
+			console.log("Projects downloaded");
 			// Stored the returned data into scope 
 			$scope.projects = data;
 		});
@@ -110,13 +110,13 @@
 	//============= TASKS =============
 	
 
-	getInfoTasks();
-	function getInfoTasks(){
-		$http.post('../../Project_Manager/php/taskDetails.php').success(function(data){
-			console.log("Tasks downloaded & updated");
-			$scope.tasks = data;
-		});
-	};
+	// getInfoTasks();
+	// function getInfoTasks(){
+	// 	$http.post('../../Project_Manager/php/taskDetails.php').success(function(data){
+	// 		console.log("Tasks downloaded & updated");
+	// 		$scope.tasks = data;
+	// 	});
+	// };
 
 
 	getMemberID();
@@ -136,7 +136,7 @@
 	};
 
 
-	// Insert New project to db
+	// Insert New task to db
 	$scope.insertNewTask = function(info){
 		$http.post('../../Project_Manager/php/insertTask.php',{
 
@@ -145,7 +145,8 @@
 			"start_dt":info.start_dt,
 			"end_dt":info.end_dt,
 			"executor_id":info.executor_id,
-			"stage_id":info.stage_id
+			"stage_id":info.stage_id,
+			"status":info.status
 
 			}).success(function(data){
 			if (data !=null) {
@@ -171,11 +172,41 @@
 	};
 
 
+	//====================================
+	//========== CASCADE MODEL ===========
+
+	
+	$scope.showStageTasks = function(info){
+		$http.post('../../Project_Manager/php/taskDetails.php',{
+
+			"stages_id":info.stages_id,
+
+			}).success(function(data){
+				if (data !=null) {
+				$scope.tasks_name = data;
+				console.log(data);
+			};
+		});
+	};
 
 
+	//=============================
+	//========= UPDATES ===========
 
+	$scope.updateMembers = function(){
+		getInfo();
+		console.log("Member List updated");
+	};
 
+	$scope.updateProjects = function(){
+		getInfoProj();
+		console.log("Project List updated");
+	};
 
+	$scope.updateTasks = function(){
+		getInfoTasks();
+		console.log("Task List updated");
+	};
 
 
 
@@ -184,13 +215,6 @@
 	}]);
 
 })();
-
-
-
-
-
-
-
 
 
 
