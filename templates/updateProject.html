@@ -1,9 +1,9 @@
 <!-- ADD_NEW_MEMBER-->
 <div class="panel panel-default" id="updateProject" hidden>
-  <!-- Default panel contents -->
-  <div class="panel-heading">Update project</div>
-        <form name="projectList" ng-submit="UpdateProject(currentProject);"
-        method="POST"> <!-- action="test.php" -->
+  <div class="panel-heading"><span style="font-weight: bold:">Update project</span>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="updateProjectBack()"><span aria-hidden="true">&times;</span></button>
+  </div>
+        <form name="projectList" class="for_all_forms" ng-submit="UpdateProject(currentProject);" method="POST">
 
           <div class="form-group">
               <label for="Name">Title</label>
@@ -11,95 +11,82 @@
                    name="projectName"
                    class="form-control"
                    placeholder="IOS Application"
-                   maxlength="30"
                    ng-model="currentProject.title"
                    value="{{currentProject.title}}" 
-                   autofocus 
                    required />
             </div>
 
-            <!-- ERRORS_NAME -->
-            <div class="form-group">
+          <!-- ERRORS_NAME -->
+          <div class="form-group">
             <p class="text-danger" ng-show="projectList.projectName.$invalid && projectList.projectName.$dirty">Title field is Empty!</p>
           </div>
           <!-- END_ERRORS_NAME -->
 
-            <div class="form-group">
-              <label for="StartDate">Start Date</label>
+          <div class="form-group">
+            <label for="DateRange">Date range</label>
+            <div class="input-group input-daterange">
               <input type="text" 
-                   name="projectStartDate"
-                   class="form-control"
-                   placeholder="2017-12-31"
-                   maxlength="30"
-                   ng-model="currentProject.start_dt" 
-                   value="{{currentProject.start_dt}}"
-                   autofocus 
-                   required />
-            </div>
+                     name="projectStartDate"
+                     class="form-control" 
+                     data-provide="datepicker"
+                     placeholder="2017-12-31"
+                     ng-model="currentProject.start_dt"
+                     value="{{currentProject.start_dt}}"
+                     required />
+                <div class="input-group-addon">to</div>
+              <input type="text"
+                     name="projectEndDate" 
+                     class="form-control" 
+                     data-provide="datepicker"
+                     placeholder="2017-12-31"
+                     ng-model="currentProject.end_dt"
+                     value="{{currentProject.end_dt}}"
+                     required />
+                </div>
+          </div>
 
-          <!-- ERRORS_SURNAME -->
-            <div class="form-group">
+          <!-- ERRORS_START_DATE -->
+          <div class="form-group">
             <p class="text-danger" ng-show="projectList.projectStartDate.$invalid && projectList.projectStartDate.$dirty">Start Date field is Empty!</p>
           </div>
-          <!-- END_ERRORS_SURNAME -->
+          <!-- END_ERRORS_START_DATE -->
 
-            <div class="form-group">
-              <label for="EndDate">End Date</label>
-              <input type="text" 
-                 name="projectEndDate"
-                 class="form-control"
-                 placeholder="2017-12-31"
-                 maxlength="30"
-                 ng-model="currentProject.end_dt"
-                 value="{{currentProject.end_dt}}" 
-                 autofocus 
-                 required />
-            </div>
 
-          <!-- ERRORS_LOGIN -->
-            <div class="form-group">
+          <!-- ERRORS_END_DATE -->
+          <div class="form-group">
             <p class="text-danger" ng-show="projectList.projectEndDate.$invalid && projectList.projectEndDate.$dirty">End Date field is Empty!</p>
           </div>
-          <!-- END_ERRORS_LOGIN -->
+          <!-- END_END_DATE -->
 
-          <div class="form-group" > <!-- ng-controller="projectManagerController" -->
+          <div class="form-group" >
             <label for="Progect Manager">Project Manager</label>
 
             </br>
 
-            <select ng-model="currentProject.emp_id" >
-              <option ng-repeat="pr_count in projCount" value="{{pr_count.id}}">{{pr_count.id}} {{pr_count.name}} {{pr_count.surname}}</option>
+            <select ng-model="currentProject.emp_id" required>
+              <option value="">-- Select Project Manager --</option>
+              <option ng-repeat="pr_count in projCount" value="{{pr_count.id}}"> {{pr_count.name}} {{pr_count.surname}}</option>
             </select>
 
-              <!-- <h1>You selected: {{currentProject.emp_id}}</h1> -->
           </div>
 
 
           <!-- ERRORS_PROGRESS -->
-            <div class="form-group">
+          <div class="form-group">
             <p class="text-danger" ng-show="projectList.projectProjectManager.$invalid && projectList.projectProjectManager.$dirty">Manager field is Empty!</p>
           </div>
           <!-- END_ERRORS_PROGRESS -->
 
-          <div class="form-group">
+          <div class="form-group" ng-repeat="project in projects">
             <label for="Progress">Progress</label>
-            <input type="text" 
-                 name="projectProgress" 
-                 class="form-control"
-                 placeholder="0"
-                 maxlength="3"
-                 ng-model="currentProject.progress"
-                 value="{{currentProject.progress}}" 
-                 autofocus
-                 value="0" 
-                 disabled />
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                  {{project.progress}}
+                </div>
+              </div>
           </div>
 
-          <!-- ERRORS_PROGRESS -->
-            <div class="form-group">
-            <p class="text-danger" ng-show="projectList.projectProgress.$invalid && projectList.projectProgress.$dirty">Progress field is Empty!</p>
-          </div>
-          <!-- END_ERRORS_PROGRESS -->
+        
 
 
           <div class="modal-footer form-group">

@@ -7,7 +7,16 @@ body {
   padding: 0;
 }
 
-a, .btn {
+a {
+  outline: 0 !important;
+  color: #e2edff;
+}
+
+#nocolor {
+  color: #3399ff;
+}
+
+select, .btn {
   outline: 0 !important;
 }
 
@@ -17,7 +26,7 @@ ul {
 }
 
 .block-left {
-  background-color: #ddd;
+  background-color: #495568;
   height: 100vh;
   padding: 25px !important;
 }
@@ -39,16 +48,69 @@ ul {
 }
 
 .links {
-  padding: 0;
+  padding-left: 20px;
 }
 
 .main-container {
   padding: 1.5vh;
 }
 
-.table-container {
-  overflow: scroll;
+.for_all_forms {
+  padding: 10px;
+}
+
+.advice {
+  color: #777a7f;
+}
+
+.memberTable {
+  max-height: 550px;
+  overflow: auto;
+}
+
+.memberTable_2 {
+  height: 540px;
+  overflow: auto;
+}
+
+.positionTable {
+  max-height: 550px;
+  overflow: auto;
+}
+
+.projectsTable {
+  max-height: 550px;
+  overflow: auto;
+}
+
+.projectStagesTable {
+  max-height: 250px;
+  overflow: auto;
+}
+
+.modelTable {
+  height: 250px;
+  overflow: auto;
+}
+
+.stagesTable {
+  max-height: 250px;
+  overflow: auto;
+}
+
+.taskTable {
+  max-height: 550px;
+  overflow: auto;
+}
+
+#calendar {
+  width: 100%;
+}
+
+.calendar {
   padding: 0;
+  margin: 0;
+  height: 400px !important;
 }
 
 .navchik {

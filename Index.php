@@ -1,8 +1,3 @@
-<?php
-
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +16,7 @@
 <body>
 
 <!-- Navigation_start -->
-<nav class="navbar navbar-inverse navbar-fixed-top hide">
+<nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -46,8 +41,6 @@
 </nav>
 <!-- Navigation_end -->
 
-
-
 <!-- MainInfo_start -->
 <div class="container-fluid">
     <div class="container c_main">
@@ -69,15 +62,11 @@
                         placeholder="Password"
                         maxlength="20"
                         required />
-                <!-- </form> -->
+
                 <div class="modal-footer">
-                    <!-- <p align="left" id="errors">${message}</p> -->
-                    <p><?php echo $error; ?></p>
-                    <button type="submit" class="btn btn-primary" onclick="er()">Log in</button>
+                    <p align="left" id="error" style="color: red;"></p>                 
+                    <button type="submit" class="btn btn-primary">Log in</button>
                 </div>
-                <p><?php echo $connection; ?></p>
-                <p><?php echo $email; ?></p>
-                <p><?php echo $password; ?></p>
             </form>
         </section>
     </div>

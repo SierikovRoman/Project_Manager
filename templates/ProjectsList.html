@@ -1,37 +1,40 @@
 <!-- Members_Table -->
-<div class="panel panel-default memberTable" id="projectList">
-  <!-- Default panel contents -->
-  <div class="panel-heading">Projects</div>
+<div class="panel panel-default" id="projectList">
+  <div class="panel-heading"><h5 class="en hide">MY PROJECT</h5><h5 class="ukr">Проекти</h5></div>
     <div class="panel-body">
       <span class="input-group-btn">
-        <input type="text" class="form-control" placeholder="Search Projects Into Database..." ng-model="search_query">
+        <input type="text" class="form-control" placeholder="Пошук деталей проекту..." ng-model="search_query"><!-- Search Projects Into Database...-->
       </span>
     </div>
-  <div class="table-container">
-      <!-- Table -->
+  <div class="table-container projectsTable">
       <table class="table table-hover">
         <tr>
-        <th>ID</th>
-        <th>Title</th>
-        <th>Start Date</th>
-        <th>End Date</th>
-        <th>Progress</th>
-        <th>Project Manager</th>
-        <th>Model</th>
-        <th>Edit</th>
-        <th>Delete</th>
+          <th class="hide">ID</th>
+          <th class="en hide">Title</th>           <th class="ukr">Назва проекту</th>
+          <th class="en hide">Start Date</th>      <th class="ukr">Початок</th>
+          <th class="en hide">End Date</th>        <th class="ukr">Кінець</th>
+          <th class="en hide">Progress</th>        <th class="ukr">Прогрес</th>
+          <th class="en hide">Project Manager</th> <th class="ukr">Керівник проекту</th>
+          <th class="en hide">Model</th>           <th class="ukr">Модель</th>
+          <th class="en hide">Edit</th>            <th class="ukr">Редагувати</th>
+          <th class="en hide">Delete</th>          <th class="ukr">Видалити</th>
         </tr>
           <tr ng-repeat="project in projects | filter:search_query">
-            <td><span>{{project.id}}</span></td>
+            <td class="hide"><span>{{project.id}}</span></td>
             <td>{{project.title}}</td>
             <td>{{project.start_dt}}</td>     
             <td>{{project.end_dt}}</td>
-            <td>{{project.progress}}</td>
-            <td>{{project.member_name}}</td>
+            <td>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                  {{project.progress}}
+                </div>
+              </div>
+            </td>
+            <td>{{project.member_name}} {{project.member_surname}}</td>
             <td>{{project.model_name}}</td>
             <td>
               <button class="btn btn-warning" ng-click="editInfoProject(project)" title="Edit">
-              <!-- <a href="#/UpdateMember"></a> -->
               <span class="glyphicon glyphicon-edit"></span></button>
             </td>
             <td>
@@ -40,6 +43,5 @@
             </td>
           </tr>
         </table>
-      <!-- </form> -->
       </div>
   </div>

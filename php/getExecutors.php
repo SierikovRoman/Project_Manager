@@ -1,9 +1,14 @@
 <?php
+session_start();
+$id=$_SESSION['id'];
 
-// Including database connections
 require_once 'database_connections.php'; 
 
-$query = "SELECT * FROM member WHERE position != 0 AND position != 1";
+$query_id = pg_query("SELECT max(project_id) FROM project_manager WHERE employee_id='$id'");
+$project_id = pg_fetch_array($query_id);
+$project_id = $project_id[0];
+
+$query = "SELECT * FROM member WHERE (position != 1) AND (position != 2) AND (project_id = '$project_id' OR project_id IS NULL) ORDER BY id";
 
 $result = pg_query($con, $query);
 

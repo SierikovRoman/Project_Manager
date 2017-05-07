@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" id="name_sys">Task Manager</a>
+      <a class="navbar-brand" id="name_sys">Project Management</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -17,26 +17,26 @@
         <li>
 		      <a href="#" class="logOn" data-toggle="modal" data-target="#logOut"">ADMIN</a>
     		</li>
-<!--     		<li class="mobile_members">
-    		  <a href="#" ng-click="membersList()">Members</a>
-    		</li>
-    		<li class="mobile_projects">
-    		  <a href="#" ng-click="projectsList()">Projects</a>
-    		</li> -->
         <li class="mobile_projects">
-          <a href="#/MemberList"> MEMBERS </a>
+          <a href="#/MemberList" ng-click="updateMembers()"> MEMBERS </a>
         </li>
         <li class="mobile_projects">
-          <a href="#/AddNewMember"> ADD NEW MEMBER </a>
+          <a href="#/AddNewMember" ng-click="updateMembers_2()"> ADD NEW MEMBER </a>
         </li>
         <li class="mobile_projects">
-          <a href="#/TaskCalendar"> PROJECTS CALENDAR </a>
+          <a href="#/Positions" ng-click="updatePositions()"> POSITIONS </a>
         </li>
         <li class="mobile_projects">
-          <a href="#/Projects"> PROJECTS </a>
+          <a href="#/AddNewPosition" ng-click="updatePositions_2()"> ADD NEW POSITION </a>
         </li>
         <li class="mobile_projects">
-          <a href="#/AddNewProject"> ADD NEW PROJECT </a>
+          <a href="#/Projects" ng-click="updateProjects()"> PROJECTS </a>
+        </li>
+        <li class="mobile_projects">
+          <a href="#/AddNewProject" ng-click="updateProjects_2()"> ADD NEW PROJECT </a>
+        </li>
+        <li class="mobile_projects">
+          <a href="#/ProjectCalendar"> PROJECTS CALENDAR </a>
         </li>
         <li class="mobile_projects">
           <a href="#/MakeReport"> MAKE REPORT </a>

@@ -1,6 +1,7 @@
 //-----Переменные
 $bg-right: #adc;
-$bg-left: #ddd;
+// $bg-left: #ddd;
+$bg-left: #495568;
 $i: !important;
 
 //-----Код
@@ -16,7 +17,16 @@ body {
 	padding: 0;
 }
 
-a, .btn {
+a {
+	outline: 0 $i;
+	color: #e2edff;
+}
+
+#nocolor{
+	color: #3399ff;
+}
+
+select, .btn {
 	outline: 0 $i;
 }
 
@@ -24,6 +34,7 @@ ul{
 	list-style-type: none;
 	margin-left: -35px;
 }
+
 
 .block-left{
 	background-color: $bg-left;
@@ -41,36 +52,107 @@ ul{
 	border-radius: 0 0 5px 5px $i;
 }
 
+//=================================
+//========== CHOOSE LANG ==========
+
+
+
+//=================================
+
 //--------------------------------------------------- Left Block
 
 .userPhoto{
 	width: auto;
 	height: auto;
-	// background-color: #111;
 	margin-bottom: 3vh;
 }
 
 .links{
-	//background-color: #111;
-	padding: 0;
+	padding-left: 20px;
 }
+
 
 //--------------------------------------------------- Right Block
 
 .main-container{
 	padding: 1.5vh;
+	// background-color: #111;
+}
+
+.for_all_forms{
+	padding: 10px;
+}
+
+.advice{
+	color: #777a7f;
 }
 
 //Table_Members
 
-.table-container {
-	overflow: scroll;
-	padding: 0;
-	//height: 200px;
+.memberTable{
+	max-height: 550px;
+	overflow: auto;
 }
 
-.table{
-	//height: 18.5vh;
+//Table_Member
+
+.memberTable_2{
+	height: 540px;
+	overflow: auto;
+}
+
+//Position table
+
+.positionTable{
+	max-height: 550px;
+	overflow: auto;
+}
+
+//Projects table
+
+.projectsTable{
+	max-height: 550px;
+	overflow: auto;
+}
+
+//ProjectStagesTable
+
+.projectStagesTable{
+	max-height: 250px;
+	overflow: auto;
+}
+
+//ModelTable
+
+.modelTable{
+	height: 250px;
+	overflow: auto;
+}
+
+//StagesTable
+
+.stagesTable{
+	max-height: 250px;
+	overflow: auto;
+}
+
+//TaskTable
+
+.taskTable{
+	max-height: 550px;
+	overflow: auto;
+}
+
+//Project calendar
+
+#calendar{
+	width: 100%;
+}
+
+.calendar{
+    padding: 0;
+    margin: 0;
+    height: 400px $i;
 }
 
 .navchik{

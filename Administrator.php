@@ -2,22 +2,24 @@
 <html lang="en" ng-app="AdministratorApp">
 <head>
 	<meta charset="UTF-8">
-	<!-- <META HTTP-EQUIV="REFRESH" CONTENT="10"> -->
 	<title>Administrator</title>
   <script>document.write('<base href="' + document.location + '" />');</script>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- <link rel="stylesheet" type="text/css" href="libs/normalize-css/normalize.css"> -->
-  <link rel="stylesheet" type="text/css" href="libs/bootstrap/dist/css/bootstrap.min.css">
+  
+  <link rel="stylesheet" type="text/css" href="libs/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="libs/fullcalendar-3.3.1/fullcalendar.min.css">
+  <link rel="stylesheet" type="text/css" href="libs/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css">
   <link rel="stylesheet" type="text/css" href="css/test.css">
-  <link rel="stylesheet" type="text/css" href="libs/fullcalendar-3.3.1/fullcalendar.css">
 
-  <script src="libs/jquery/dist/jquery.min.js"></script>
+  <script src="libs/jquery/dist/jquery.js"></script>
   <script src="libs/moment/min/moment.min.js"></script>
   <script src="libs/fullcalendar-3.3.1/fullcalendar.js"></script>
   <script src="libs/angular/angular.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
-  <script src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="libs/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="libs/bootstrap-datepicker-master/dist/js/bootstrap-datepicker.js"></script>
   <script src="js/administrator.js"></script>
+
 
 </head>
 <body>
@@ -25,27 +27,68 @@
 		<div class="row">
 			<div class="col-lg-2 col-mg-2 col-sm-2 hidden-xs block-left">
 				<div class="userPhoto">
-					<img src="images/romek.png" alt="romek" class="img-responsive img-circle">
+					<img src="images/1.jpg" alt="romek" class="img-responsive img-circle">
 				</div>
 				<div class="links">
 					<ul class="nav nav-pills nav-stacked">
             <li>
-              <a href="#/MemberList"> MEMBERS </a>
+              <a href="#/MemberList" class="en hide" ng-click="updateMembers()"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> 
+              MEMBERS </a>
+              <a href="#/MemberList" class="ukr" ng-click="updateMembers()"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> 
+              РОБІТНИКИ </a>
             </li>
             <li>
-              <a href="#/AddNewMember"> ADD NEW MEMBER </a>
+              <a href="#/AddNewMember" class="en hide" ng-click="updateMembers_2()"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+              ADD NEW MEMBER </a>
+              <a href="#/AddNewMember" class="ukr" ng-click="updateMembers_2()"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+              ДОДАТИ РОБІТНИКА </a>
+            </li>
+            <hr>
+            <li>
+              <a href="#/Positions" class="en hide" ng-click="updatePositions()"><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> 
+              POSITIONS </a>
+              <a href="#/Positions" class="ukr" ng-click="updatePositions()"><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> 
+              ПОСАДИ </a>
             </li>
             <li>
-              <a href="#/ProjectCalendar"> PROJECTS CALENDAR </a>
+              <a href="#/AddNewPosition" class="en hide" ng-click="updatePositions_2()"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> 
+              ADD NEW POSITION </a>
+              <a href="#/AddNewPosition" class="ukr" ng-click="updatePositions_2()"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> 
+              ДОДАТИ ПОСАДУ </a>
             </li>
-						<li>
-              <a href="#/Projects"> PROJECTS </a>
+            <hr>
+						<li> 
+              <a href="#/Projects" class="en hide" ng-click="updateProjects()"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+               PROJECTS </a>
+               <a href="#/Projects" class="ukr" ng-click="updateProjects()"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+               ПРОЕКТИ </a>
             </li>
             <li>
-              <a href="#/AddNewProject"> ADD NEW PROJECT </a>
+              <a href="#/AddNewProject" class="en hide" ng-click="updateProjects_2()"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> 
+              ADD NEW PROJECT </a>
+              <a href="#/AddNewProject" class="ukr" ng-click="updateProjects_2()"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> 
+              ДОДАТИ ПРОЕКТ </a>
             </li>
+            <hr>
             <li>
-              <a href="#/MakeReport"> MAKE REPORT </a>
+              <a href="#/ProjectCalendar" class="en hide" ng-click="updateProjectCalendar()"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> 
+              PROJECTS CALENDAR </a>
+              <a href="#/ProjectCalendar" class="ukr" ng-click="updateProjectCalendar()"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> 
+              КАЛЕНДАР ПРОЕКТІВ </a>
+            </li>
+            <hr>
+            <li>
+              <a href="#/MakeReport" class="en hide" ng-click="updateProjectReport()"><span class="glyphicon glyphicon-file" aria-hidden="true"></span> 
+              MAKE REPORT </a>
+              <a href="#/MakeReport" class="ukr" ng-click="updateProjectReport()"><span class="glyphicon glyphicon-file" aria-hidden="true"></span> 
+              ЗВІТ </a>
+            </li>
+            <hr>
+            <li>
+              <a href="" class="en hide" ng-click="chooseLang()"><span class="glyphicon glyphicon-random" aria-hidden="true"></span> 
+              CHOOSE LANG</a>
+              <a href="" class="ukr" ng-click="chooseLang()"><span class="glyphicon glyphicon-random" aria-hidden="true"></span> 
+              ВИБІР МОВИ</a> 
             </li>
 					</ul>
 				</div>
@@ -62,6 +105,8 @@
 
           <div ng-include src="'templates/updateMember.html'"></div>
 
+          <div ng-include src="'templates/updatePosition.html'"></div>
+
           <div ng-include src="'templates/updateProject.html'"></div>
 
           <ng-view></ng-view>
@@ -73,342 +118,9 @@
 		</div>
 	</div>
 
-<!-- Modal -->
-<div class="modal fade" id="projectInfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Project Name</h4>
-      </div>
-      <div class="modal-body">
-        <div class="panel panel-default">
-          <table class="table">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Start Date</th>
-                <th>End Date</th>
-                <th>Progress</th>
-              </tr>
-            </thead>
-            <tbody>
-            <tr>
-              <th>1</th>
-              <th>09.19.16</th>
-              <th>10.10.16</th>
-              <th>
-                <div class="progress">
-                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-                  60%
-                </div>
-              </div>
-              </th>
-            </tr>
-          </table>
-        </div>
-
-          <div class="panel-group" id="accordion">
-          <div class="panel panel-default" id="accordion-1">
-            <div class="panel-heading sprint-heading">
-              <h4 class="panel-title">
-                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                  SPRINT NAME #1
-                </a>
-              </h4>
-            </div>
-            <div id="collapseOne" class="panel-collapse collapse">
-              <div class="panel-body-sprint">
-
-                <!-- Table -->
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th>#</th>
-                      <th>Start Date</th>
-                      <th>End Date</th>
-                      <th>Project Manager</th>
-                      <th>Progress</th>
-                    </tr>
-                  </thead>
-                  <tbody id="tbody">
-                    <tr>
-                      <th>1</th>
-                      <th>09.19.16</th>
-                      <th>10.10.16</th>
-                      <th>Oleg</th>
-                      <th>
-                        <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-                          60%
-                        </div>
-                      </div>
-                      </th>
-                    </tr>
-                  </tbody>
-                </table>
-
-                <!-- TASK_1 -->  
-                <div class="panel-task ">
-                <div class="panel-heading task-heading">
-                  <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#accordion-1" href="#collapseTwo">
-                      TASK NAME #1
-                    </a>
-                  </h4>
-                    </div>
-                    <div id="collapseTwo" class="panel-collapse collapse">
-                      <div class="panel-body">
-                        <table class="table">
-                          <tbody id="tbody">
-                          <!-- TASK_ID -->
-                            <tr>
-                              <th>
-                                <label>#</label>
-                              </th>
-                              <th>
-                                <p>1</p>
-                              </th>
-                            </tr>
-                          <!-- START_TIME -->
-                            <tr>
-                              <th>
-                                <label>Start time</label>
-                              </th>
-                              <th>
-                                <p>11.11.2017</p>
-                              </th>
-                            </tr>
-                          <!-- END_TIME -->
-                            <tr>
-                              <th>
-                                <label>End time</label>
-                              </th>
-                              <th>
-                                <p>30.30.2017</p>
-                              </th>
-                            </tr>
-                          <!-- ESTIMATED_TIME -->
-                            <tr>
-                              <th>
-                                <label>Estimated Time</label>
-                              </th>
-                              <th>
-                                <p>5 hours</p>
-                              </th>
-                            </tr>
-                          <!-- MEMBERS -->
-                            <tr>
-                              <th>
-                                <label>Members</label>
-                              </th>
-                              <th>
-                                <p>sasasasasa</p>
-                              </th>
-                            </tr>
-                          <!-- STATUS -->
-                            <tr>
-                              <th>
-                                <label>Status</label>
-                              </th>
-                              <th>
-                                <p><span class="label label-success">Done</span></p>
-                              </th>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  </div>
-                <!-- END_TASK_1 -->
-
-                <!-- TASK_2 -->
-                <div class="panel-task">
-                <div class="panel-heading task-heading">
-                  <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#accordion-1" href="#collapseThree">
-                      TASK NAME #2
-                    </a>
-                  </h4>
-                    </div>
-                    <div id="collapseThree" class="panel-collapse collapse">
-                      <div class="panel-body">
-                        <table class="table">
-                          <tbody id="tbody">
-                          <!-- TASK_ID -->
-                            <tr>
-                              <th>
-                                <label>#</label>
-                              </th>
-                              <th>
-                                <p>2</p>
-                              </th>
-                            </tr>
-                          <!-- START_TIME -->
-                            <tr>
-                              <th>
-                                <label>Start time</label>
-                              </th>
-                              <th>
-                                <p>11.11.2017</p>
-                              </th>
-                            </tr>
-                          <!-- END_TIME -->
-                            <tr>
-                              <th>
-                                <label>End time</label>
-                              </th>
-                              <th>
-                                <p>30.30.2017</p>
-                              </th>
-                            </tr>
-                          <!-- ESTIMATED_TIME -->
-                            <tr>
-                              <th>
-                                <label>Estimated Time</label>
-                              </th>
-                              <th>
-                                <p>5 hours</p>
-                              </th>
-                            </tr>
-                          <!-- MEMBERS -->
-                            <tr>
-                              <th>
-                                <label>Members</label>
-                              </th>
-                              <th>
-                                <p>sasasasasa</p>
-                              </th>
-                            </tr>
-                          <!-- STATUS -->
-                            <tr>
-                              <th>
-                                <label>Status</label>
-                              </th>
-                              <th>
-                                <p><span class="label label-warning">In Process</span></p>
-                              </th>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  </div>
-                <!-- END_TASK_2 -->
-
-                <!-- TASK_3 -->
-                <div class="panel-task">
-                <div class="panel-heading task-heading">
-                  <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#accordion-1" href="#collapseFour">
-                      TASK NAME #3
-                    </a>
-                  </h4>
-                    </div>
-                    <div id="collapseFour" class="panel-collapse collapse">
-                      <div class="panel-body">
-                        <table class="table">
-                          <tbody id="tbody">
-                          <!-- TASK_ID -->
-                            <tr>
-                              <th>
-                                <label>#</label>
-                              </th>
-                              <th>
-                                <p>3</p>
-                              </th>
-                            </tr>
-                          <!-- START_TIME -->
-                            <tr>
-                              <th>
-                                <label>Start time</label>
-                              </th>
-                              <th>
-                                <p>11.11.2017</p>
-                              </th>
-                            </tr>
-                          <!-- END_TIME -->
-                            <tr>
-                              <th>
-                                <label>End time</label>
-                              </th>
-                              <th>
-                                <p>30.30.2017</p>
-                              </th>
-                            </tr>
-                          <!-- ESTIMATED_TIME -->
-                            <tr>
-                              <th>
-                                <label>Estimated Time</label>
-                              </th>
-                              <th>
-                                <p>5 hours</p>
-                              </th>
-                            </tr>
-                          <!-- MEMBERS -->
-                            <tr>
-                              <th>
-                                <label>Members</label>
-                              </th>
-                              <th>
-                                <p>sasasasasa</p>
-                              </th>
-                            </tr>
-                          <!-- STATUS -->
-                            <tr>
-                              <th>
-                                <label>Status</label>
-                              </th>
-                              <th>
-                                <p><span class="label label-danger">To Do</span></p>
-                              </th>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  </div>
-                <!-- END_TASK#3 -->
-
-               </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-      <div class="modal-footer">
-        <div class="row">
-          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-            <button type="button" class="btn btn-danger del" data-toggle="modal" data-target="#deletinProject" onclick="deleting()">Delete Project</button>
-          </div>
-          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
 <!-- LOG_OUT -->
-<!-- <div ng-include src="'templates/logOut.html'"></div> -->
-<div class="modal fade" id="logOut" tabindex="-1" role="dialog" aria-labelledby="LOGOUT">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="LOGOUT">Log out</h4>
-      </div>
-      <div class="modal-body">
-      <h5>Do really want to exit?</h5>
-      </div>
-      <div class="modal-footer">
-        <button type="submit" class="btn btn-primary" onclick='location.href="Index.php"''>Log out</button>
-      </div>
-      </form>
-    </div>
-  </div>
-</div>
+<div ng-include src="'templates/logOut.html'"></div>
 
 
 </body>
