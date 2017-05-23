@@ -1,0 +1,515 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="dj3vms44je7rl@ec2-46-137-117-43.eu-west-1.compute.amazonaws.com">
+  <database-model serializer="dbm" rdbms="POSTGRES" format-version="4.2">
+    <root id="1"/>
+    <database id="2" parent="1" name="dj3vms44je7rl">
+      <ObjectId>1070997</ObjectId>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </database>
+    <schema id="3" parent="2" name="public">
+      <ObjectId>2200</ObjectId>
+      <IntrospectionTimestamp>2017-05-08.23:05:28.975</IntrospectionTimestamp>
+      <IntrospectionStateNumber>36436593</IntrospectionStateNumber>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="4" parent="2" name="pg_catalog">
+      <ObjectId>11</ObjectId>
+    </schema>
+    <schema id="5" parent="2" name="pg_toast">
+      <ObjectId>99</ObjectId>
+    </schema>
+    <schema id="6" parent="2" name="pg_temp_1">
+      <ObjectId>11848</ObjectId>
+    </schema>
+    <schema id="7" parent="2" name="pg_toast_temp_1">
+      <ObjectId>11849</ObjectId>
+    </schema>
+    <schema id="8" parent="2" name="information_schema">
+      <ObjectId>13003</ObjectId>
+    </schema>
+    <sequence id="9" parent="3" name="access_type_id_seq">
+      <ObjectId>1071586</ObjectId>
+      <StateNumber>17306125</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <sequence id="10" parent="3" name="member_id_seq">
+      <ObjectId>1071595</ObjectId>
+      <StateNumber>17306127</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <sequence id="11" parent="3" name="model_id_seq">
+      <ObjectId>1912646</ObjectId>
+      <StateNumber>28012202</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <sequence id="12" parent="3" name="position_id_seq">
+      <ObjectId>1071605</ObjectId>
+      <StateNumber>17306441</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <sequence id="13" parent="3" name="project_id_seq">
+      <ObjectId>1071614</ObjectId>
+      <StateNumber>17306444</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <sequence id="14" parent="3" name="project_manager_project_id_seq">
+      <ObjectId>1071630</ObjectId>
+      <StateNumber>17306448</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <sequence id="15" parent="3" name="stage_id_seq">
+      <ObjectId>2008582</ObjectId>
+      <StateNumber>28178399</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <sequence id="16" parent="3" name="task_executor_employee_id_seq">
+      <ObjectId>1071654</ObjectId>
+      <StateNumber>17306451</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <sequence id="17" parent="3" name="task_id_seq">
+      <ObjectId>1071644</ObjectId>
+      <StateNumber>17306450</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <table id="18" parent="3" name="access_type">
+      <ObjectId>1071588</ObjectId>
+      <StateNumber>17306461</StateNumber>
+    </table>
+    <table id="19" parent="3" name="language">
+      <ObjectId>3057638</ObjectId>
+      <StateNumber>36436593</StateNumber>
+    </table>
+    <table id="20" parent="3" name="member">
+      <ObjectId>1071597</ObjectId>
+      <StateNumber>28358324</StateNumber>
+    </table>
+    <table id="21" parent="3" name="model">
+      <ObjectId>1873416</ObjectId>
+      <StateNumber>25045850</StateNumber>
+    </table>
+    <table id="22" parent="3" name="position">
+      <ObjectId>1071607</ObjectId>
+      <StateNumber>17306441</StateNumber>
+    </table>
+    <table id="23" parent="3" name="project">
+      <ObjectId>1071616</ObjectId>
+      <StateNumber>29035486</StateNumber>
+    </table>
+    <table id="24" parent="3" name="project_manager">
+      <ObjectId>1071632</ObjectId>
+      <StateNumber>17306465</StateNumber>
+    </table>
+    <table id="25" parent="3" name="stage">
+      <ObjectId>1873421</ObjectId>
+      <StateNumber>25158092</StateNumber>
+    </table>
+    <table id="26" parent="3" name="task">
+      <ObjectId>1071646</ObjectId>
+      <StateNumber>26930937</StateNumber>
+    </table>
+    <table id="27" parent="3" name="task_executor">
+      <ObjectId>1071656</ObjectId>
+      <StateNumber>17306468</StateNumber>
+    </table>
+    <column id="28" parent="18" name="id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>17306125</StateNumber>
+      <SequenceName>access_type_id_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;access_type_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="29" parent="18" name="access_name">
+      <Position>2</Position>
+      <DataType>text|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>17306125</StateNumber>
+    </column>
+    <index id="30" parent="18" name="access_type_pk">
+      <ObjectId>1071660</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="31" parent="18" name="access_type_pk">
+      <ObjectId>1071661</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>access_type_pk</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="32" parent="19" name="member_id">
+      <Position>1</Position>
+      <DataType>bigint|0</DataType>
+      <StateNumber>36436592</StateNumber>
+    </column>
+    <column id="33" parent="19" name="lang">
+      <Position>2</Position>
+      <DataType>varchar(3)|0</DataType>
+      <StateNumber>36436593</StateNumber>
+    </column>
+    <column id="34" parent="20" name="id">
+      <Position>1</Position>
+      <DataType>bigint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>17306127</StateNumber>
+      <SequenceName>member_id_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;member_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="35" parent="20" name="name">
+      <Position>2</Position>
+      <DataType>text|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>17306127</StateNumber>
+    </column>
+    <column id="36" parent="20" name="surname">
+      <Position>3</Position>
+      <DataType>text|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>17306127</StateNumber>
+    </column>
+    <column id="37" parent="20" name="email">
+      <Position>4</Position>
+      <DataType>text|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>17306127</StateNumber>
+    </column>
+    <column id="38" parent="20" name="access_type">
+      <Position>5</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>17306127</StateNumber>
+    </column>
+    <column id="39" parent="20" name="position">
+      <Position>6</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>17306127</StateNumber>
+      <DefaultExpression>0</DefaultExpression>
+    </column>
+    <column id="40" parent="20" name="password">
+      <Position>7</Position>
+      <DataType>text|0</DataType>
+      <StateNumber>17306127</StateNumber>
+    </column>
+    <column id="41" parent="20" name="project_id">
+      <Position>8</Position>
+      <DataType>bigint|0</DataType>
+      <StateNumber>28358324</StateNumber>
+    </column>
+    <index id="42" parent="20" name="member_id_pk">
+      <ObjectId>1071664</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="43" parent="20" name="member_email_uniq">
+      <ObjectId>1071662</ObjectId>
+      <ColNames>email</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="44" parent="20" name="member_id_pk">
+      <ObjectId>1071665</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>member_id_pk</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="45" parent="20" name="member_email_uniq">
+      <ObjectId>1071663</ObjectId>
+      <ColNames>email</ColNames>
+      <UnderlyingIndexName>member_email_uniq</UnderlyingIndexName>
+    </key>
+    <foreign-key id="46" parent="20" name="member_fk_access_type">
+      <ObjectId>1071674</ObjectId>
+      <ColNames>access_type</ColNames>
+      <RefTableName>access_type</RefTableName>
+      <RefKeyName>access_type_pk</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="47" parent="21" name="id">
+      <Position>1</Position>
+      <DataType>bigint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>28012203</StateNumber>
+      <SequenceName>model_id_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;model_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="48" parent="21" name="name">
+      <Position>2</Position>
+      <DataType>varchar(150)|0</DataType>
+      <StateNumber>25036291</StateNumber>
+    </column>
+    <column id="49" parent="21" name="project_id">
+      <Position>4</Position>
+      <DataType>bigint|0</DataType>
+      <StateNumber>25036291</StateNumber>
+    </column>
+    <index id="50" parent="21" name="model_pkey">
+      <ObjectId>1873429</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="51" parent="21" name="model_pkey">
+      <ObjectId>1873430</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>model_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="52" parent="22" name="id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>17306441</StateNumber>
+      <SequenceName>position_id_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;position_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="53" parent="22" name="pos_name">
+      <Position>2</Position>
+      <DataType>text|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>17306441</StateNumber>
+    </column>
+    <index id="54" parent="22" name="position_id_pk">
+      <ObjectId>1071666</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="55" parent="22" name="position_id_pk">
+      <ObjectId>1071667</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>position_id_pk</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="56" parent="23" name="id">
+      <Position>1</Position>
+      <DataType>bigint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>17306444</StateNumber>
+      <SequenceName>project_id_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;project_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="57" parent="23" name="title">
+      <Position>2</Position>
+      <DataType>text|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>17306444</StateNumber>
+    </column>
+    <column id="58" parent="23" name="start_dt">
+      <Position>3</Position>
+      <DataType>date|0</DataType>
+      <StateNumber>17306444</StateNumber>
+    </column>
+    <column id="59" parent="23" name="end_dt">
+      <Position>4</Position>
+      <DataType>date|0</DataType>
+      <StateNumber>17306444</StateNumber>
+    </column>
+    <column id="60" parent="23" name="progress">
+      <Position>5</Position>
+      <DataType>double precision|0</DataType>
+      <StateNumber>29035486</StateNumber>
+    </column>
+    <column id="61" parent="23" name="model_id">
+      <Position>6</Position>
+      <DataType>bigint|0</DataType>
+      <StateNumber>25044832</StateNumber>
+    </column>
+    <index id="62" parent="23" name="project_id_pk">
+      <ObjectId>1071668</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="63" parent="23" name="project_id_pk">
+      <ObjectId>1071669</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>project_id_pk</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="64" parent="23" name="project_model_fk">
+      <ObjectId>1873452</ObjectId>
+      <ColNames>model_id</ColNames>
+      <RefTableName>model</RefTableName>
+      <RefKeyName>model_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
+      <OnUpdate>cascade</OnUpdate>
+    </foreign-key>
+    <column id="65" parent="24" name="project_id">
+      <Position>1</Position>
+      <DataType>bigint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>17306448</StateNumber>
+      <SequenceName>project_manager_project_id_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;project_manager_project_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="66" parent="24" name="employee_id">
+      <Position>2</Position>
+      <DataType>bigint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>17306448</StateNumber>
+    </column>
+    <foreign-key id="67" parent="24" name="project_manager_fk_project">
+      <ObjectId>1071694</ObjectId>
+      <ColNames>project_id</ColNames>
+      <RefTableName>project</RefTableName>
+      <RefKeyName>project_id_pk</RefKeyName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="68" parent="24" name="project_manager_fk_member">
+      <ObjectId>1071689</ObjectId>
+      <ColNames>employee_id</ColNames>
+      <RefTableName>member</RefTableName>
+      <RefKeyName>member_id_pk</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="69" parent="25" name="id">
+      <Position>1</Position>
+      <DataType>bigint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>28178401</StateNumber>
+      <SequenceName>stage_id_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;stage_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="70" parent="25" name="name">
+      <Position>2</Position>
+      <DataType>varchar(250)|0</DataType>
+      <StateNumber>25036451</StateNumber>
+    </column>
+    <column id="71" parent="25" name="model_id">
+      <Position>3</Position>
+      <DataType>bigint|0</DataType>
+      <StateNumber>25036451</StateNumber>
+    </column>
+    <index id="72" parent="25" name="stage_pkey">
+      <ObjectId>1873424</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="73" parent="25" name="stage_pkey">
+      <ObjectId>1873425</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>stage_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="74" parent="25" name="stage_model_fk">
+      <ObjectId>1873441</ObjectId>
+      <ColNames>model_id</ColNames>
+      <RefTableName>model</RefTableName>
+      <RefKeyName>model_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
+      <OnUpdate>cascade</OnUpdate>
+    </foreign-key>
+    <column id="75" parent="26" name="id">
+      <Position>1</Position>
+      <DataType>bigint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>17306450</StateNumber>
+      <SequenceName>task_id_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;task_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="76" parent="26" name="title">
+      <Position>3</Position>
+      <DataType>text|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>17306450</StateNumber>
+    </column>
+    <column id="77" parent="26" name="description">
+      <Position>4</Position>
+      <DataType>text|0</DataType>
+      <StateNumber>17306450</StateNumber>
+    </column>
+    <column id="78" parent="26" name="is_done">
+      <Position>5</Position>
+      <DataType>boolean|0</DataType>
+      <StateNumber>17306450</StateNumber>
+      <DefaultExpression>false</DefaultExpression>
+    </column>
+    <column id="79" parent="26" name="start_dt">
+      <Position>6</Position>
+      <DataType>date|0</DataType>
+      <StateNumber>17306450</StateNumber>
+    </column>
+    <column id="80" parent="26" name="end_dt">
+      <Position>7</Position>
+      <DataType>date|0</DataType>
+      <StateNumber>17306450</StateNumber>
+    </column>
+    <column id="81" parent="26" name="estimate_tm">
+      <Position>8</Position>
+      <DataType>integer|0</DataType>
+      <StateNumber>17306450</StateNumber>
+    </column>
+    <column id="82" parent="26" name="week_no">
+      <Position>9</Position>
+      <DataType>integer|0</DataType>
+      <StateNumber>17306450</StateNumber>
+    </column>
+    <column id="83" parent="26" name="project_id">
+      <Position>10</Position>
+      <DataType>bigint|0</DataType>
+      <StateNumber>24599648</StateNumber>
+    </column>
+    <column id="84" parent="26" name="stage_id">
+      <Position>11</Position>
+      <DataType>bigint|0</DataType>
+      <StateNumber>26930592</StateNumber>
+    </column>
+    <index id="85" parent="26" name="task_id_pk">
+      <ObjectId>1071672</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="86" parent="26" name="task_id_pk">
+      <ObjectId>1071673</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>task_id_pk</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="87" parent="26" name="task_fk_project">
+      <ObjectId>1871858</ObjectId>
+      <ColNames>project_id</ColNames>
+      <RefTableName>project</RefTableName>
+      <RefKeyName>project_id_pk</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="88" parent="27" name="employee_id">
+      <Position>1</Position>
+      <DataType>bigint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>17306451</StateNumber>
+      <SequenceName>task_executor_employee_id_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;task_executor_employee_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="89" parent="27" name="task_id">
+      <Position>2</Position>
+      <DataType>bigint|0</DataType>
+      <StateNumber>17306451</StateNumber>
+    </column>
+    <foreign-key id="90" parent="27" name="task_executor_fk_employee">
+      <ObjectId>1071704</ObjectId>
+      <ColNames>employee_id</ColNames>
+      <RefTableName>member</RefTableName>
+      <RefKeyName>member_id_pk</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="91" parent="27" name="task_executor_fk_task">
+      <ObjectId>1071709</ObjectId>
+      <ColNames>task_id</ColNames>
+      <RefTableName>task</RefTableName>
+      <RefKeyName>task_id_pk</RefKeyName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+  </database-model>
+</dataSource>

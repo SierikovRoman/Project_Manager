@@ -54,6 +54,19 @@
 
 	app.controller("DbController",['$scope','$http', function($scope,$http){
 
+	getLanguage();
+	function getLanguage(){
+		$http.post('../../Project_Manager/php/getLanguage.php').success(function(data){
+			if(data == 'en'){
+				$('.ukr').addClass('hide');
+				$('.en').removeClass('hide');
+			} else if (data == 'ukr'){
+				$('.ukr').removeClass('hide');
+				$('.en').addClass('hide');
+			};
+		});
+	};
+
 	getInfo();
 		function getInfo(){ 
 			$http.post('../../Project_Manager/php/empDetails.php').success(function(data){
@@ -424,8 +437,17 @@
 	};
 
 	$scope.chooseLang = function(){
-		$('.ukr').addClass('hide');
-		$('.en').removeClass('hide');
+		$http.post('../../Project_Manager/php/chooseLang.php').success(function(data){
+			if(data == 'en'){
+				$('.ukr').addClass('hide');
+				$('.en').removeClass('hide');
+			} else if (data == 'ukr'){
+				$('.ukr').removeClass('hide');
+				$('.en').addClass('hide');
+			};
+		});
+		// $('.ukr').addClass('hide');
+		// $('.en').removeClass('hide');
 	};
 
 	}]);
