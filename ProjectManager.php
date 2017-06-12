@@ -29,7 +29,7 @@ session_start();
 		<div class="row">
 			<div class="col-lg-2 col-mg-2 col-sm-2 hidden-xs block-left">
 				<div class="userPhoto">
-					<img src="images/romek.png" alt="projectManager" class="img-responsive img-circle">
+					<img src="images/1.jpg" alt="projectManager" class="img-responsive img-circle">
 				</div>
 				<div class="links">
 					<ul class="nav nav-pills nav-stacked" style="font-size: 8pt;">

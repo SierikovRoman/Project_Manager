@@ -5,7 +5,7 @@ require_once 'database_connections.php';
 
 //$query = "SELECT * FROM member"; // JOIN access_type ON member.access_type = access_type.id LEFT JOIN position ON member.position = position.id
 
-$query = "SELECT m.name, m.surname, m.email, ac.access_name, ac.id AS access_id, p.id AS position_id, m.id, p.pos_name, m.password FROM member m JOIN access_type ac ON m.access_type = ac.id LEFT JOIN position p ON m.position = p.id ORDER BY m.id";
+$query = "SELECT m.name, m.surname, m.email, ac.access_name, m.id, p.pos_name, m.password FROM member m JOIN access_type ac ON m.access_type = ac.id LEFT JOIN position p ON m.position = p.id ORDER BY m.id";
 
 $result = pg_query($con, $query);
 

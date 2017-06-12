@@ -28,7 +28,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" id="name_sys">Task Manager</a>
+            <a class="navbar-brand" id="name_sys">Project Management</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->

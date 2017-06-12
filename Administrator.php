@@ -27,7 +27,7 @@
 		<div class="row">
 			<div class="col-lg-2 col-mg-2 col-sm-2 hidden-xs block-left">
 				<div class="userPhoto">
-					<img src="images/mikola.png" alt="romek" class="img-responsive img-circle">
+					<img src="images/1.jpg" alt="romek" class="img-responsive img-circle">
 				</div>
 				<div class="links">
 					<ul class="nav nav-pills nav-stacked">
