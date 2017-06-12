@@ -1,13 +1,14 @@
 <?php
-// Including database connections
+
 require_once 'database_connections.php'; 
-// mysqli query to fetch all data from database
 
-//$query = "SELECT * FROM member"; // JOIN access_type ON member.access_type = access_type.id LEFT JOIN position ON member.position = position.id
+$data = json_decode(file_get_contents("php://input"));
 
-$query = "SELECT id, name, surname FROM member WHERE position = '1'";
+$project_id = pg_escape_string($con, $data->id);
 
-$result = pg_query($con, $query);
+$query = "SELECT m.id, m.name, m.surname FROM member m WHERE position = '2' AND ( project_id IS NULL OR project_id = '$project_id' ) ORDER BY m.id";
+
+$result = pg_query($con, $query); 
 
 $arr = array();
 if(pg_num_rows($result) != 0) {
@@ -16,6 +17,6 @@ if(pg_num_rows($result) != 0) {
 	}
 }
 
-// Return json array containing data from the database
 echo $json_info = json_encode($arr);
+
 ?>

@@ -1,24 +1,30 @@
 <?php
 session_start();
 $id=$_SESSION['id'];
-echo $id;
-// Including database connections
-require_once 'database_connections.php'; 
-// mysqli query to fetch all data from database
+include 'database_connections.php';
 
-$query_id="SELECT project_id FROM project_manager WHERE employee_id='$id'";
-$project_id=pg_fetch_array($query_id);
-$project_id=$project_id[0];
+$data = json_decode(file_get_contents("php://input"));
 
-if ($id!=2) {
-	$query = "SELECT title, description, start_dt, end_dt FROM task WHERE project_id='$project_id' ";
-}else{
-	$query = "SELECT * FROM task ";
-}
+$stage_id = pg_escape_string($con, $data->stages_id);
 
-//$query = "SELECT * FROM task WHERE project_id='$project_id" ;
+$query_project_id = pg_query("SELECT max(project_id) FROM project_manager WHERE employee_id='$id'");
+$project_id = pg_fetch_array($query_project_id);
+$project_id = $project_id[0];
+
+$query_model_id = pg_query("SELECT model_id FROM project WHERE id = '$project_id' ");
+$model_id = pg_fetch_array($query_model_id);
+$model_id = $model_id[0];
+
+$query = "SELECT t.id, t.title, t.description, t.start_dt, t.end_dt, m.name AS member_name, m.surname AS member_surname, t.is_done, st.name AS stage_name, t.project_id FROM task t
+		  LEFT JOIN task_executor tx ON t.id = tx.task_id
+		  LEFT JOIN member m ON tx.employee_id = m.id
+		  LEFT JOIN stage st ON t.stage_id = st.id
+		  LEFT JOIN model mod ON st.model_id = mod.id
+		  WHERE (t.project_id = '$project_id') AND (mod.id = '$model_id') ORDER BY t.id;";
 
 $result = pg_query($con, $query);
+// echo true;
+
 
 $arr = array();
 if(pg_num_rows($result) != 0) {
@@ -27,35 +33,5 @@ if(pg_num_rows($result) != 0) {
 	}
 }
 
-// Return json array containing data from the database
 echo $json_info = json_encode($arr);
-?>
-
-<?php
-// session_start();
-// $id=$_SESSION['id'];
-// // Including database connections
-// require_once 'database_connections.php'; 
-// // mysqli query to fetch all data from database
-
-// $query_id=pg_query("SELECT project_id FROM project_manager WHERE employee_id='$id'");
-// $project_id=pg_fetch_array($query_id);
-// $project_id=$project_id[0];
-// if ($id!=2) {
-// 	$query = "SELECT * FROM project WHERE id='$project_id' ";
-// }else{
-// 	$query = "SELECT * FROM project ";
-// }
-
-// $result = pg_query($con, $query);
-
-// $arr = array();
-// if(pg_num_rows($result) != 0) {
-// 	while($row = pg_fetch_assoc($result)) {
-// 			$arr[] = $row;
-// 	}
-// }
-
-// // Return json array containing data from the database
-// echo $json_info = json_encode($arr);
 ?>

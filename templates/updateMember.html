@@ -1,9 +1,9 @@
 <!-- ADD_NEW_MEMBER-->
 <div class="panel panel-default" id="updateMember" hidden>
-  <!-- Default panel contents -->
-  <div class="panel-heading">Update Member</div>
-        <form name="memberList" ng-submit="UpdateInfo(currentUser);"
-        method="POST"> <!-- action="test.php" -->
+  <div class="panel-heading"><span style="font-weight: bold;">Update Member</span>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="updateBack()"><span aria-hidden="true">&times;</span></button>
+  </div>
+        <form name="memberList" class="for_all_forms" ng-submit="UpdateInfo(currentUser);" method="POST">
 
           <div class="form-group">
               <label for="Name">Name</label>
@@ -14,12 +14,11 @@
                    maxlength="30"
                    ng-model="currentUser.name"
                    value="{{currentUser.name}}" 
-                   autofocus 
                    required />
             </div>
 
-            <!-- ERRORS_NAME -->
-            <div class="form-group">
+          <!-- ERRORS_NAME -->
+          <div class="form-group">
             <p class="text-danger" ng-show="memberList.memberName.$invalid && memberList.memberName.$dirty">Name field is Empty!</p>
           </div>
           <!-- END_ERRORS_NAME -->
@@ -33,12 +32,11 @@
                    maxlength="30"
                    ng-model="currentUser.surname" 
                    value="{{currentUser.surname}}" 
-                   autofocus 
                    required />
             </div>
 
           <!-- ERRORS_SURNAME -->
-            <div class="form-group">
+          <div class="form-group">
             <p class="text-danger" ng-show="memberList.memberSurname.$invalid && memberList.memberSurname.$dirty">Surname field is Empty!</p>
           </div>
           <!-- END_ERRORS_SURNAME -->
@@ -52,53 +50,51 @@
                    maxlength="30"
                    ng-model="currentUser.email" 
                    value="{{currentUser.email}}" 
-                   autofocus 
                    required />
             </div>
 
           <!-- ERRORS_LOGIN -->
-            <div class="form-group">
+          <div class="form-group">
             <p class="text-danger" ng-show="memberList.memberEmail.$invalid && memberList.memberEmail.$dirty">Email field is Empty!</p>
           </div>
           <!-- END_ERRORS_LOGIN -->
 
-          <div class="form-group">
-            <label for="AccessType">Access type</label>
-            <input type="text" 
-                 name="memberAccessType" 
-                 class="form-control"
-                 placeholder="2"
-                 maxlength="30"
-                 ng-model="currentUser.access_id"
-                 value="{{currentUser.access_id}}" 
-                 autofocus 
-                 required />
+          <div class="form-group" >
+            <label for="Position">Access type</label>
+
+            </br>
+
+            <select ng-model="currentUser.access_id" required>
+              <option value="">-- Select acces type --</option>
+              <option ng-repeat="access_count in accessCount" value="{{access_count.id}}"> {{access_count.access_name}} </option>
+            </select>
+
           </div>
 
           <!-- ERRORS_ACCESS_TYPE -->
-            <div class="form-group">
+          <div class="form-group">
             <p class="text-danger" ng-show="memberList.memberAccessType.$invalid && memberList.memberAccessType.$dirty">Access type field is Empty!</p>
           </div>
           <!-- END_ERRORS_ACCESS_TYPE -->
 
-          <div class="form-group">
+          <div class="form-group" >
             <label for="Position">Position</label>
-            <input type="text" 
-                 name="memberPosition" 
-                 class="form-control"
-                 placeholder="0"
-                 maxlength="30"
-                 ng-model="currentUser.position_id" 
-                 value="{{currentUser.position_id}}" 
-                 autofocus 
-                 required />
+
+            </br>
+
+            <select ng-model="currentUser.position_id" required>
+              <option value="">-- Select position --</option>
+              <option ng-repeat="pos_count in posCount" value="{{pos_count.id}}"> {{pos_count.pos_name}} </option>
+            </select>
+
           </div>
 
-          <!-- ERRORS_POSITION -->
-            <div class="form-group">
-            <p class="text-danger" ng-show="memberList.memberPosition.$invalid && memberList.memberPosition.$dirty">Position field is Empty!</p>
+
+          <!-- ERRORS_PROGRESS -->
+          <div class="form-group">
+            <p class="text-danger" ng-show="projectList.projectProjectManager.$invalid && projectList.projectProjectManager.$dirty">Manager field is Empty!</p>
           </div>
-          <!-- END_ERRORS_POSITION -->
+          <!-- END_ERRORS_PROGRESS -->
 
           <div class="form-group">
             <label for="Password">Password</label>
@@ -109,12 +105,11 @@
                  maxlength="30"
                  ng-model="currentUser.password" 
                  value="{{currentUser.password}}" 
-                 autofocus 
                  required />
           </div>
 
           <!-- ERRORS_PASSWORD -->
-            <div class="form-group">
+          <div class="form-group">
             <p class="text-danger" ng-show="memberList.memberPassword.$invalid && memberList.memberPassword.$dirty">Password field is Empty!</p>
           </div>
           <!-- END_ERRORS_PASSWORD -->
@@ -122,7 +117,8 @@
 
 
           <div class="modal-footer form-group">
-            <button class="btn btn-primary" ng-disabled="memberList.$invalid" ng-click="updateMsg(currentUser.id)">Update</button> 
+              <p align="left" class="advice"><em>To update info about member, please fill in all fields.</em></p>
+              <button class="btn btn-primary" ng-disabled="memberList.$invalid" ng-click="updateMsg(currentUser.id)">Update</button> 
           </div>
         </form>
       </div>

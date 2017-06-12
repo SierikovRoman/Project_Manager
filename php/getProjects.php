@@ -14,6 +14,5 @@ if(pg_num_rows($result) != 0) {
 	}
 }
 
-// Return json array containing data from the database
 echo $json_info = json_encode($arr);
 ?>
